@@ -1,9 +1,57 @@
 import { StatusBar } from "expo-status-bar";
-import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
+import React from "react";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  FlatList,
+} from "react-native";
 import profile from "./assets/images/profile-image.png";
 import search from "./assets/icons/search.png";
 import filter from "./assets/icons/slider.png";
 import SearchBar from "./components/SearchBar";
+import Categories from "./components/Categories"; // Assuming you have a Category component
+
+const customData = [
+  {
+    id: 1,
+    title: "Morning Workout",
+    tasks: 12,
+    // categoryImage: images.exercise,
+  },
+  {
+    id: 2,
+    title: "Study Sessions",
+    tasks: 12,
+    // categoryImage: images.learning,
+  },
+  {
+    id: 3,
+    title: "Chill Time",
+    tasks: 8,
+    // categoryImage: images.exercise,
+  },
+  {
+    id: 4,
+    title: "Nature Walks",
+    tasks: 2,
+    // categoryImage: images.learning,
+  },
+  {
+    id: 5,
+    title: "Bookworm Hours",
+    tasks: 5,
+    // categoryImage: images.exercise,
+  },
+  {
+    id: 6,
+    title: "Swimming Breaks",
+    tasks: 1,
+    // categoryImage: images.learning,
+  },
+];
 
 export default function App() {
   return (
@@ -40,6 +88,25 @@ export default function App() {
           filterIcon={filter}
           otherStyles={{ marginTop: 28 }} // Use object instead of string for otherStyles
         />
+        <View style={{ marginTop: 7 }}>
+          <Text style={{ fontSize: 32, fontWeight: "bold", marginBottom: 7 }}>
+            Categories
+          </Text>
+          <FlatList
+            data={customData}
+            renderItem={({ item }) => (
+              <Categories
+                title={item.title}
+                taskNumber={item.tasks}
+                categoryImage={item.categoryImage}
+              />
+            )}
+            keyExtractor={(item) => item.id.toString()}
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{ paddingRight: 16 }}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
