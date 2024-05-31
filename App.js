@@ -1,11 +1,14 @@
 import { StatusBar } from "expo-status-bar";
 import { SafeAreaView, StyleSheet, Text, View, Image } from "react-native";
 import profile from "./assets/images/profile-image.png";
+import search from "./assets/icons/search.png";
+import filter from "./assets/icons/slider.png";
+import SearchBar from "./components/SearchBar";
 
 export default function App() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#F7E9E8" }}>
-      <View style={{ flex: 1, padding: 16 }}>
+      <View style={{ flex: 1, padding: 24 }}>
         <View
           style={{
             flexDirection: "row",
@@ -13,7 +16,7 @@ export default function App() {
             alignItems: "center",
           }}
         >
-          <View>
+          <View style={{ flex: 1 }}>
             <Text style={{ fontSize: 32, fontWeight: "bold" }}>
               Hello, Devs
             </Text>
@@ -30,6 +33,13 @@ export default function App() {
             />
           </View>
         </View>
+        <SearchBar
+          placeholder="Search"
+          searchIcon={search}
+          isFilterable={true}
+          filterIcon={filter}
+          otherStyles={{ marginTop: 28 }} // Use object instead of string for otherStyles
+        />
       </View>
     </SafeAreaView>
   );
