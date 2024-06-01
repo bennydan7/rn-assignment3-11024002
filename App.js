@@ -69,6 +69,32 @@ const customData = [
   },
 ];
 
+const ONGOING_TASKS = [
+  "Mobile App Development",
+  "Learning",
+  "Complete the assignment",
+  "Prepare for the meeting",
+  "Finish the report",
+  "Send the email",
+  "Call the client",
+  "Submit the project",
+  "Sleeping",
+  "Watching TV",
+  "Cooking",
+  "Cleaning",
+  "Shopping",
+  "Grocery Shopping",
+  "Gardening",
+  "House Cleaning",
+  "Car Maintenance",
+  "Yoga Session",
+  "Online Course",
+  "Gym Workout",
+  "Meditation",
+  "Laundry",
+  "Homework",
+];
+
 export default function App() {
   return (
     <SafeAreaView style={{ flex: 1, backgroundColor: "#F7E9E8" }}>
