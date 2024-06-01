@@ -1,19 +1,21 @@
 import React from "react";
 import {
   SafeAreaView,
-  StyleSheet,
   Text,
   View,
   Image,
   FlatList,
   SectionList,
 } from "react-native";
+
+// image imports
 import profile from "./assets/images/profile-image.png";
 import search from "./assets/icons/search.png";
 import filter from "./assets/icons/slider.png";
 import learning from "./assets/images/learning.png";
 import exercise from "./assets/images/exercise.png";
 
+//component imports
 import SearchBar from "./components/SearchBar";
 import Categories from "./components/Categories";
 import OngoingTask from "./components/OngoingTask";
