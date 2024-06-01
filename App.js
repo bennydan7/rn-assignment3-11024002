@@ -71,7 +71,7 @@ const customData = [
   },
 ];
 
-const ONGOING_TASKS = [
+const OngoingTasks = [
   "Mobile App Development",
   "Learning",
   "Complete the assignment",
@@ -156,7 +156,7 @@ export default function App() {
             Ongoing Tasks
           </Text>
           <SectionList
-            sections={[{ title: "Ongoing Tasks", data: ONGOING_TASKS }]}
+            sections={[{ title: "Ongoing Tasks", data: OngoingTasks }]}
             keyExtractor={(item, index) => item + index}
             renderItem={({ item }) => <OngoingTask taskName={item} />}
           />
