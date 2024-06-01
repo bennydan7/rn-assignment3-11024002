@@ -54,4 +54,7 @@ The main component that renders the entire app structure including the header, s
 ## Student ID
 
     11024002
-    Bernard Asiedu Owusu-Dankwah
+
+## Author
+
+Bernard Asiedu Owusu-Dankwah
