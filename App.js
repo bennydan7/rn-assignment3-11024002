@@ -65,7 +65,7 @@ const customData = [
   },
   {
     id: 8,
-    title: "Swimming Breaks",
+    title: "Coding",
     tasks: 1,
     categoryImage: learning,
   },
