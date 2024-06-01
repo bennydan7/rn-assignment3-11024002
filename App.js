@@ -1,4 +1,3 @@
-import { StatusBar } from "expo-status-bar";
 import React from "react";
 import {
   SafeAreaView,
@@ -7,49 +6,66 @@ import {
   View,
   Image,
   FlatList,
+  SectionList,
 } from "react-native";
 import profile from "./assets/images/profile-image.png";
 import search from "./assets/icons/search.png";
 import filter from "./assets/icons/slider.png";
+import learning from "./assets/images/learning.png";
+import exercise from "./assets/images/exercise.png";
+
 import SearchBar from "./components/SearchBar";
-import Categories from "./components/Categories"; // Assuming you have a Category component
+import Categories from "./components/Categories";
+import OngoingTask from "./components/OngoingTask";
 
 const customData = [
   {
     id: 1,
-    title: "Morning Workout",
+    title: "Exercise",
     tasks: 12,
-    // categoryImage: images.exercise,
+    categoryImage: exercise,
   },
   {
     id: 2,
-    title: "Study Sessions",
+    title: "Study",
     tasks: 12,
-    // categoryImage: images.learning,
+    categoryImage: exercise,
   },
   {
     id: 3,
-    title: "Chill Time",
-    tasks: 8,
-    // categoryImage: images.exercise,
+    title: "Morning Workout",
+    tasks: 12,
+    categoryImage: exercise,
   },
   {
     id: 4,
-    title: "Nature Walks",
-    tasks: 2,
-    // categoryImage: images.learning,
+    title: "Study Sessions",
+    tasks: 12,
+    categoryImage: learning,
   },
   {
     id: 5,
-    title: "Bookworm Hours",
-    tasks: 5,
-    // categoryImage: images.exercise,
+    title: "Chill Time",
+    tasks: 8,
+    categoryImage: exercise,
   },
   {
     id: 6,
+    title: "Nature Walks",
+    tasks: 2,
+    categoryImage: learning,
+  },
+  {
+    id: 7,
+    title: "Bookworm Hours",
+    tasks: 5,
+    categoryImage: exercise,
+  },
+  {
+    id: 8,
     title: "Swimming Breaks",
     tasks: 1,
-    // categoryImage: images.learning,
+    categoryImage: learning,
   },
 ];
 
@@ -86,7 +102,7 @@ export default function App() {
           searchIcon={search}
           isFilterable={true}
           filterIcon={filter}
-          otherStyles={{ marginTop: 28 }} // Use object instead of string for otherStyles
+          otherStyles={{ marginTop: 28 }}
         />
         <View style={{ marginTop: 7 }}>
           <Text style={{ fontSize: 32, fontWeight: "bold", marginBottom: 7 }}>
@@ -107,16 +123,17 @@ export default function App() {
             contentContainerStyle={{ paddingRight: 16 }}
           />
         </View>
+        <View style={{ marginTop: 10 }}>
+          <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 7 }}>
+            Ongoing Tasks
+          </Text>
+          <SectionList
+            sections={[{ title: "Ongoing Tasks", data: ONGOING_TASKS }]}
+            keyExtractor={(item, index) => item + index}
+            renderItem={({ item }) => <OngoingTask taskName={item} />}
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-});
